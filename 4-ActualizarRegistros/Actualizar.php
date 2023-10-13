@@ -2,6 +2,7 @@
 
     // $busqueda = $_GET['buscar'];
     $estatusName = $_GET['estatusName'];
+    $n_estatus_id = $_GET['n_estatus_id'];
     require("./connection.php");
 
     $conProd = mysqli_connect($hostProd, $userNameProd, $passProd);
@@ -16,7 +17,7 @@
     //Setiando la codificacion de caracteres
     mysqli_set_charset($conProd, "utf8");
 
-    $queryBuscar = "INSERT INTO cat_Estatus_copy1 (c_estatus_nombre) VALUES ('$estatusName');";
+    $queryBuscar = "UPDATE cat_Estatus_copy1 SET c_estatus_nombre = '$estatusName' WHERE n_estatus_id = '$n_estatus_id';";
 
     $resultadoQueryBuscar = mysqli_query($conProd, $queryBuscar);
 
